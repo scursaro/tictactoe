@@ -45,9 +45,9 @@ int main(){
             break;
 
         }
-
-
     }
+    printBoard();
+    printWinner(winner);
 
 
 
@@ -130,7 +130,7 @@ void playerMove()
 
     if(board[x][y] != ' ' )
     {
-        printf("Invalid move, spot taken\n");
+        printf("Invalid move\n");
     }
     else
     {
@@ -157,7 +157,7 @@ void computerMove()
     do
     {
         x=rand() % 3;
-        y =rand() %3
+        y =rand() %3;
     } while (board[x][y] != ' ');
     board[x][y] = COMPUTER;
    } 
@@ -208,19 +208,19 @@ void printWinner(char winner)
 {
     if(winner == PLAYER)
     {
-        printf("Player wins")
+        printf("Player wins");
     }
     else if(winner == COMPUTER)
     {
-        printf("Computer Wins")
+        printf("Computer Wins");
     }
     else if(winner == PLAYER2)
     {
-        printf("Player2 Wins")
+        printf("Player2 Wins");
     }
     else
     {
-        printf("Y'all trash, y'all tied")
+        printf("Y'all trash, y'all tied");
     }
 
 }
