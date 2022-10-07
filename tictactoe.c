@@ -1,5 +1,19 @@
 //Game between two players
 
+// have some funcitions that check the board,print the board, have a random move, or a player move
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <time.h>
+
+void resetBoard();
+void PrintBoard();
+int checkFreeSpace(); //Functions for the game
+void playerMove();
+void computerMove();
+char checkWinner();
+void printWinner(char);
+
 int main(){
     //prompt user for game they wish t play
 
