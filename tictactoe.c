@@ -13,7 +13,7 @@ const char COMPUTER = '0';
 
 
 void resetBoard();
-void PrintBoard();
+void printBoard();
 int checkFreeSpace(); //Functions for the game
 void playerMove();
 void computerMove();
@@ -22,6 +22,13 @@ void printWinner(char);
 
 int main(){
     //prompt user for game they wish t play
+
+    char winner = ' ';
+
+    resetBoard();
+    printBoard();
+
+
 
 
     //read information from console
@@ -46,6 +53,14 @@ int main(){
 
 void resetBoard()
 {
+    for(int i =0; i<3;i++)
+    {
+        for(int j =0; j < 3; j++)
+        {
+            board[i][j] = ' ';
+        }
+
+    }
 
 }
 void PrintBoard()
