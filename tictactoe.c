@@ -21,7 +21,7 @@ char checkWinner();
 void printWinner(char);
 
 int main(){
-    //prompt user for game they wish t play
+    //prompt user for game they wish to play
 
     char winner = ' ';
 
@@ -29,7 +29,10 @@ int main(){
 
     while(winner == ' ' && checkSpace() !=0)
     {
-    printBoard();
+        printBoard();
+        playerMove();
+
+
     }
 
 
@@ -93,11 +96,40 @@ int checkSpace()
 
         }
     }
+    return openSpaces;
 
 
 }
 void playerMove()
 {
+    int x;
+    int y;
+
+    do
+    {
+    printf("Enter a row (1-3): ");
+    scanf("%d", &x);
+    x--;
+    printf("Enter a col. (1-3): ");
+    scanf("%d", &y);
+    y--;
+
+    if(board[x][y] != ' ' )
+    {
+        printf("Invalid move, spot taken\n");
+    }
+    else
+    {
+        board[x][y] = PLAYER;
+        break;
+
+    }
+
+        
+    } while (board[x][y] != ' ');
+    
+    
+
 
 }
 void computerMove()
