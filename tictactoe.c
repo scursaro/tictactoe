@@ -206,5 +206,21 @@ char checkWinner()
 }
 void printWinner(char winner)
 {
+    if(winner == PLAYER)
+    {
+        printf("Player wins")
+    }
+    else if(winner == COMPUTER)
+    {
+        printf("Computer Wins")
+    }
+    else if(winner == PLAYER2)
+    {
+        printf("Player2 Wins")
+    }
+    else
+    {
+        printf("Y'all trash, y'all tied")
+    }
 
 }
