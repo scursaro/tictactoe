@@ -6,6 +6,12 @@
 #include <ctype.h>
 #include <time.h>
 
+char board[3][3];
+const char PLAYER = 'X';
+const char PLAYER2 = '0';
+const char COMPUTER = '0';
+
+
 void resetBoard();
 void PrintBoard();
 int checkFreeSpace(); //Functions for the game
@@ -36,4 +42,33 @@ int main(){
     
     
     return 0;
+}
+
+void resetBoard()
+{
+
+}
+void PrintBoard()
+{
+
+}
+int checkFreeSpace()
+{
+
+}
+void playerMove()
+{
+
+}
+void computerMove()
+{
+
+}
+char checkWinner()
+{
+
+}
+void printWinner(char winner)
+{
+
 }
