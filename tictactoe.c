@@ -13,25 +13,64 @@ const char COMPUTER = '0';
 
 
 void resetBoard();
-void printBoard();
-int checkSpace(); //Functions for the game
+void printBoard(); //print out the new layout
+int checkSpace(); ////check if the location is taken, if not place guess, else return to user to pick new spot
 void playerMove();
+void playerMove2();
 void computerMove();
-char checkWinner();
+char checkWinner(); // another function to check if the person on didWin()
 void printWinner(char);
 
 int main(){
-    //prompt user for game they wish to play
+    
 
     char winner = ' ';
 
     resetBoard();
+//prompt user for game they wish to play
+    printf("WELCOME TO TIC-TAC-TOE!\n");
+    printf("\n1--Person vs Person\n");
+    printf("\n2--Person vs Computer");
+//read information from console
+    int option;
 
+    scanf("%d", &option);
+    //possibly start the game, maybe a while loop with a nested switch
+    //Will also need two separate cases, One for With Player, and One with random 
+
+    if(option ==1)
+    {
+        while(winner == ' ' && checkSpace() !=0)
+    {
+        printBoard();
+
+        playerMove();//after selection is made, prompt user to enter two int's for their location
+        winner = checkWinner();
+        if(winner != ' ' || checkSpace() ==0)
+        {
+            break;
+
+        }
+        printBoard();
+        playerMove2();
+        winner = checkWinner();
+        if(winner != ' ' || checkSpace() ==0)
+        {
+            break;
+
+        }
+    }
+    printBoard();
+    printWinner(winner);
+
+    }
+    else if(option ==2)
+    {
     while(winner == ' ' && checkSpace() !=0)
     {
         printBoard();
 
-        playerMove();
+        playerMove();//after selection is made, prompt user to enter two int's for their location
         winner = checkWinner();
         if(winner != ' ' || checkSpace() ==0)
         {
@@ -48,25 +87,15 @@ int main(){
     }
     printBoard();
     printWinner(winner);
+    }
+    else{
+        printf("Invalid Selection");
+    }
 
 
 
 
-    //read information from console
-
-    //possibly start the game, maybe a while loop with a nested switch
-    //Will also need two separate cases, One for With Player, and One with random 
-
-    //after selection is made, prompt user to enter two int's for their location
-    //check if the location is taken, if not place guess, else return to user to pick new spot
-
-    //print out the new layout
-
-    //maybe also have an array? or keep track somehow 
     
-    
-    //have a way to keep track of three in a row possibly a function that is for add(), and 
-    // another function to check if the person on didWin()
     
     
     return 0;
@@ -121,10 +150,10 @@ void playerMove()
 
     do
     {
-    printf("Enter a row (1-3): ");
+    printf("Enter a row Player 1(1-3): ");
     scanf("%d", &x);
     x--;
-    printf("Enter a col. (1-3): ");
+    printf("Enter a col. Player 1(1-3): ");
     scanf("%d", &y);
     y--;
 
@@ -135,6 +164,38 @@ void playerMove()
     else
     {
         board[x][y] = PLAYER;
+        break;
+
+    }
+
+        
+    } while (board[x][y] != ' ');
+    
+    
+
+
+}
+void playerMove2()
+{
+    int x;
+    int y;
+
+    do
+    {
+    printf("Enter a row Player 2(1-3): ");
+    scanf("%d", &x);
+    x--;
+    printf("Enter a col. Player 2 (1-3): ");
+    scanf("%d", &y);
+    y--;
+
+    if(board[x][y] != ' ' )
+    {
+        printf("Invalid move\n");
+    }
+    else
+    {
+        board[x][y] = PLAYER2;
         break;
 
     }
